@@ -1,4 +1,4 @@
-#include "Student.h"
+#include "student.h"
 #include <stdlib.h>
 
 //You are given a large integer represented as an integer array digits, where:
@@ -27,7 +27,33 @@
 
 int* plusOne(int* digits, int digitsSize, int* returnSize) {
     // TODO: implement
-
     
+   // int i=0;
+
+for (int i = digitsSize-1; i >=0; --i)
+{
+    if (digits[i]<9)
+    {
+        digits[i]++;
+        int* result= malloc(digitsSize *sizeof(int));
+        for(int j=0; j<digitsSize; j++)result[j]=digits[j];
+         *returnSize = digitsSize;
+       return result;
+        
+      
+    }
+    digits[i]=0;
+
+}  
+
+
+int* result= calloc(digitsSize + 1, sizeof(int));
+
+result[0]=1;
+
+*returnSize= digitsSize + 1;
+
+return result;
+
 }
 
