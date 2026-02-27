@@ -29,6 +29,7 @@
 #include <stddef.h>  // size_t
 #include <string.h>  // strlen
 
+
 bool isValid(const char *s) {
     // TODO: Implement using a stack.
     //
@@ -53,42 +54,62 @@ bool isValid(const char *s) {
     //
     // Note:
     // - Input contains only bracket characters, per the prompt.
+    char s[];
+    void push(char);
+    char pop();
+    int i;
+    int top=-1;
+    int flag=1;
     
-    if (s==NULL) return false;
 
-    size_t n = strlen(s);
-    if(n==0) return true;
-
-    char stack[n];
-    int top =-1;
-
-
- 
-
-    for(size_t i= 0; i<n ; i++)
+    for(size_t n = strlen(s); i<n ; i++)
     {
-        char c =s[i];
-
-        if (c== '(' || c== '{' || c=='[')
+        if (s[i]== '(' || s[i]== '{' || s[i]=='[')
             {
-                stack[++top]=c;
+                push(s[++top]);
             }
-        else if (c==')' || c=='}' || c==']')
+        if (s[i]==')' || s[i]=='}' || s[i]==']')
             {
-               if(top==-1) return false;
-               
-               char topChar =stack[top--];
-
-            if (c == ')' && topChar != '(') return false;
-            if (c == '}' && topChar != '{') return false;
-            if (c == ']' && topChar != '[') return false;
-            }
+               pop(s[--top]);
+            }  
     }
 
 
-   
+    if (top>=0)
+    {
+        return false;
+    }
+    if (flag==1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+}
+ void push(char c)
+    {
+        if (top==strlen(s))
+            {  return false;}
+        else
+                top=top+1;
+                s[top]=c;
+            
+    }
+    char pop()
+    {
+        if (top==-1);
+            {return false;
+            }
+        else
         
-    return top==-1;
+          return(s[top--])  ;
+        
+
 
     }
-   
+    //(void)s; // remove after implementing
+    return false; // placeholder
+
