@@ -11,8 +11,19 @@
 // ------------------------------------------------------------
 
 #include "Student.h"
-
 int middleNodeValue(struct ListNode *head) {
     // TODO: implement
+
+    struct ListNode* fast= head;
+    struct ListNode* slow= head;
+
+    if(head==NULL)
+        return -1;
+    while(fast!= NULL && fast->next !=NULL){
+        slow =slow->next;
+        fast =fast->next->next;
+    }
+
+    return slow->val;
 
 }
