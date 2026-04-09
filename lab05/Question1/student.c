@@ -53,10 +53,10 @@ Optional helper function declarations.
 
 You may use them, modify them, or remove them if you prefer your own design.
 */
-static int hash(int key);
+/*static int hash(int key);
 static void insert(Node* table[], int key, int value);
 static int find(Node* table[], int key, int* value);
-static void freeTable(Node* table[]);
+static void freeTable(Node* table[]);*/
 
 /*
 Return an array of size 2 containing the indices of the two numbers
@@ -64,6 +64,18 @@ whose sum equals target.
 */
 int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
     /* Write your code here */
+    *returnSize = 2;
+    int* result= (int*)malloc(*returnSize *sizeof(int));
+    for(int i=0; i<numsSize; i++)
+        for (int j = i+1; j < numsSize; j++)
+        {
+            if(nums[i]+nums[j]==target){
+                result[0]=i;
+                result[1]=j;
+                return result;
+
+            }
+        }
 
     *returnSize = 0;
     return NULL;
@@ -72,31 +84,32 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
 /*
 Optional helper: compute a hash index for a key.
 */
-static int hash(int key) {
-    /* Write your code here if you use this helper */
+/* static int hash(int key) {
+    /* Write your code here if you use this helper 
     return 0;
 }
-
+*/
 /*
 Optional helper: insert (key, value) into the hash table.
 */
-static void insert(Node* table[], int key, int value) {
-    /* Write your code here if you use this helper */
+/*static void insert(Node* table[], int key, int value) {
+    /* Write your code here if you use this helper 
 }
-
+*/
 /*
 Optional helper: search for key in the hash table.
 If found, store the associated value in *value and return 1.
 Otherwise return 0.
 */
+/*
 static int find(Node* table[], int key, int* value) {
-    /* Write your code here if you use this helper */
+    /* Write your code here if you use this helper 
     return 0;
 }
 
 /*
 Optional helper: free all memory used by the hash table.
-*/
+
 static void freeTable(Node* table[]) {
-    /* Write your code here if you use this helper */
-}
+ Write your code here if you use this helper 
+}*/

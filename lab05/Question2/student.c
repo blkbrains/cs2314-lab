@@ -38,7 +38,7 @@ Optional helper function declarations.
 
 You may use them, modify them, or remove them if you prefer your own design.
 */
-static void swap(int* a, int* b);
+/*static void swap(int* a, int* b);
 static void heapifyUp(int* heap, int index);
 static void heapifyDown(int* heap, int size, int index);
 
@@ -47,26 +47,39 @@ Return the kth largest element in nums.
 */
 int findKthLargest(int* nums, int numsSize, int k) {
     /* Write your code here */
-    return 0;
+    int i,j,temp;
+    
+    for (i=0; i < numsSize - 1; i++) {
+        for (j=i+1; j<numsSize; j++) {
+            if (nums[j]>nums[i]) {
+                temp=nums[i];
+                nums[i] =nums[j];
+                nums[j]=temp;
+            }
+        }
+      
+    }
+    return nums[k-1];
 }
 
 /*
 Optional helper: swap two integers.
-*/
+
 static void swap(int* a, int* b) {
-    /* Write your code here if you use this helper */
+    /* Write your code here if you use this helper
 }
 
 /*
 Optional helper: restore min-heap order from a node upward.
-*/
+
 static void heapifyUp(int* heap, int index) {
-    /* Write your code here if you use this helper */
+    /* Write your code here if you use this helper
 }
 
-/*
+
 Optional helper: restore min-heap order from a node downward.
-*/
+
 static void heapifyDown(int* heap, int size, int index) {
-    /* Write your code here if you use this helper */
+/*Write your code here if you use this helper
 }
+*/
